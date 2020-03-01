@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		
+		
+		
+		<script type="text/javascript">
+			//{  }就是一个块级作用域
+			//var和function声明的变量依然是全局的
+			//let和const声明的变量只能是私有作用域，外面用不了
+			{
+				var a=1;
+				let b=3;
+			}
+			// console.log(a)//1
+			// console.log(b)//报错
+			
+			
+			//{ }在js中看做一个块级作用域，花括号在句首认作块级作用域
+			//a={}看做一个对象
+			
+			
+			// if中的function不会提前声明，当条件成立时才会给函数执行，代码再执行
+			if(0){
+				var A=1;
+				function getAA(){
+					
+				}
+			}
+			console.log(A);
+			console.log(getAA);//undefined
+			
+			
+			// var
+			let list=document.getElementById('list').getElementsByTagName('li');
+			// for(var i=0;i<list.length;i++){
+			// 	list[i].index=i//解决方法，把i当成自定义属性存起来
+			// 	list[i].onclick=function(){
+			// 		// alert(i)//绑定时间是异步的过程，循环已经结束，点击哪里都是6
+			// 		alert(this.index)
+			// 	}
+			// }
+			// 或者let,每一个值都是他私有的
+			for(let i=0;i<list.length;i++){
+				list[i].onclick=function(){
+					alert(i)
+					
+				}
+			}
+			
+		</script>
+	</body>
+</html>
